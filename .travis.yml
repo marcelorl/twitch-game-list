@@ -13,7 +13,7 @@ before_install:
 script:
   - npm run lint
   - npm test -- --single-run --no-progress
-  - npm run e2e
+#  - npm run e2e
   - npm build --prod --aot --no-progress
 
 addons:
