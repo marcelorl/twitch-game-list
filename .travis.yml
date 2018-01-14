@@ -28,7 +28,7 @@ addons:
       - google-chrome-stable
 
 before_deploy:
-  - npm build:prod
+  - npm run build:prod
 
 deploy:
   local-dir: dist
