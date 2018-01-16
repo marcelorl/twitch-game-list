@@ -19,7 +19,7 @@ import { Game } from '../game.model';
   selector: 'app-filter',
   template: `
   <div class="d-flex align-items-center pr-3 mt-2">
-    <div class="font-weight-bold mr-2">Filtrar por:</div>
+    <div class="font-weight-bold mr-2">Filter by:</div>
     <div>
       <button
         type="button"

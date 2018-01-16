@@ -10,7 +10,12 @@ import { TwitchService } from '../twitch.service';
 })
 export class HomeComponent implements OnInit {
   games: Game[] = [];
+  searchMode: boolean = false;
   loading: boolean = false;
+
+  throttle = 500;
+  scrollDistance = 0;
+  scrollUpDistance = 2;
 
   constructor(private twitchService: TwitchService) { }
 
@@ -22,8 +27,21 @@ export class HomeComponent implements OnInit {
     this.twitchService.getGames()
       .subscribe(game => {
         this.games = game;
+      });
+  }
 
-        return this.games;
+  onScrollDown(): void {
+    if (this.searchMode) {
+      return;
+    }
+
+    this.loading = true;
+
+    this.twitchService.getGames(this.games.length)
+      .subscribe(game => {
+        this.games = this.games.concat(game);
+
+        this.loading = false;
       });
   }
 }

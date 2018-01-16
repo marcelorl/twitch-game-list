@@ -2,6 +2,7 @@
   <app-search class="w-100"
     (loading)="loading = $event"
     (games)="games = $event"
+    (searchMode)="searchMode = $event"
   ></app-search>
   <app-filter class="w-100"
     (gamesOutput)="games = $event"
@@ -10,7 +11,14 @@
 </nav>
 
 <div class="container home">
-  <ul class="game-list row">
+  <ul class="game-list row"
+    *ngIf="games.length"
+    data-infinite-scroll
+    [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollUpDistance]="scrollUpDistance"
+    [infiniteScrollThrottle]="throttle"
+    (scrolled)="onScrollDown()"
+  >
     <li
       class="col-12 col-sm-6 col-md-4 col-xl-3 game-list__item mb-2 d-flex flex-column"
       *ngFor="let game of games">
@@ -20,6 +28,7 @@
   </ul>
 
   <img
+    class="mt-4 mb-4"
     *ngIf="loading"
     src='assets/images/loading.gif' />
 

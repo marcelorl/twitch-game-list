@@ -23,6 +23,7 @@ import { Game } from '../game.model';
 })
 export class SearchComponent implements OnInit {
   @Output() loading: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() searchMode: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() games: EventEmitter<Game[]> = new EventEmitter<Game[]>();
 
   constructor(private twitchService: TwitchService, private el: ElementRef) { }
@@ -33,7 +34,8 @@ export class SearchComponent implements OnInit {
       .debounceTime(500)
       .do(() => {
         this.games.emit([]);
-        return this.loading.emit(true);
+        this.loading.emit(true);
+        this.searchMode.emit(true);
       })
       .map((keyword: string) => this.searchGames(keyword))
       .switch()
@@ -54,6 +56,7 @@ export class SearchComponent implements OnInit {
 
   searchGames(keyword: string): Observable<Game[]> {
     if (!keyword) {
+      this.searchMode.emit(false);
       return this.twitchService.getGames();
     }
 

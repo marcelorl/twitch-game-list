@@ -9,7 +9,7 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Client-ID': '6rvivrxl0ww18gk6rh5dtvcr2nmz0j' })
 };
 
-const calcLimit = () => {
+const calcLimit = (): number => {
   const width = window.innerWidth;
   if (width < 576) {
     return 25;
@@ -29,8 +29,13 @@ export class TwitchService {
 
   constructor(private http: HttpClient) { }
 
-  getGames(): Observable<Game[]> {
-    return this.http.get(`${this.twitchUrl}/games/top?limit=${calcLimit()}`, httpOptions)
+  getGames(offset: number = 0): Observable<Game[]> {
+    const queryString: string = [
+      `limit=${calcLimit()}`,
+      `offset=${offset}`
+    ].join('&');
+
+    return this.http.get(`${this.twitchUrl}/games/top?${queryString}`, httpOptions)
       .map(response => {
         return <any>response['top'].map(item =>
           new Game({
