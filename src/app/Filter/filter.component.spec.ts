@@ -39,25 +39,33 @@ describe('#Component: Filter', () => {
   });
 
   it('checks if class active is in popularity button', () => {
+    let gamesSorted;
+    component.games = inputGames;
+    component.gamesOutput.subscribe((value) => gamesSorted = value);
+
     btnPopularityEl.triggerEventHandler('click', null);
     fixture.detectChanges();
 
-    const btnPopClasses = Array.from(btnPopularityEl.nativeElement.classList);
-    const btnViewClasses = Array.from(btnViewEl.nativeElement.classList);
+    const btnPopClasses = btnPopularityEl.nativeElement.classList;
+    const btnViewClasses = btnViewEl.nativeElement.classList;
 
-    expect(btnPopClasses.includes('active')).toBeTruthy();
-    expect(btnViewClasses.includes('active')).toBeFalsy();
+    expect(btnPopClasses.contains('active')).toBeTruthy();
+    expect(btnViewClasses.contains('active')).toBeFalsy();
   });
 
   it('checks if class active is in views button', () => {
+    let gamesSorted;
+    component.games = inputGames;
+    component.gamesOutput.subscribe((value) => gamesSorted = value);
+
     btnViewEl.triggerEventHandler('click', null);
     fixture.detectChanges();
 
-    const btnViewClasses = Array.from(btnViewEl.nativeElement.classList);
-    const btnPopClasses = Array.from(btnPopularityEl.nativeElement.classList);
+    const btnViewClasses = btnViewEl.nativeElement.classList;
+    const btnPopClasses = btnPopularityEl.nativeElement.classList;
 
-    expect(btnViewClasses.includes('active')).toBeTruthy();
-    expect(btnPopClasses.includes('active')).toBeFalsy();
+    expect(btnViewClasses.contains('active')).toBeTruthy();
+    expect(btnPopClasses.contains('active')).toBeFalsy();
   });
 
   it('sorts by popularity', () => {

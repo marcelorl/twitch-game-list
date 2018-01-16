@@ -45,7 +45,7 @@ export class FilterComponent implements OnInit {
   @Output() gamesOutput: EventEmitter<Game[]> = new EventEmitter<Game[]>();
   @Input() games: Game[];
 
-  private sortKey: string = 'popularity';
+  public sortKey: string = 'popularity';
 
   constructor() { }
 
