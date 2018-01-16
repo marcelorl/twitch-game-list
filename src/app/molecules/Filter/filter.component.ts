@@ -13,7 +13,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/switch';
 
-import { Game } from '../game.model';
+import { Game } from 'app/game.model';
 
 @Component({
   selector: 'app-filter',

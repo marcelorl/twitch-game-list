@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Game } from '../game.model';
-import { TwitchService } from '../twitch.service';
+import { Game } from 'app/game.model';
+import { TwitchService } from 'app/twitch.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: 'home.component.html',
+  styleUrls: ['home.component.scss']
 })
 export class HomeComponent implements OnInit {
   games: Game[] = [];

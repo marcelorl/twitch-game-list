@@ -14,8 +14,8 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/switch';
 
-import { TwitchService } from '../twitch.service';
-import { Game } from '../game.model';
+import { TwitchService } from 'app/twitch.service';
+import { Game } from 'app/game.model';
 
 @Component({
   selector: 'app-search',

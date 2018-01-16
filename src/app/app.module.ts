@@ -7,9 +7,9 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TwitchService } from './twitch.service';
-import { HomeComponent } from './Home/home.component';
-import { SearchComponent } from './Search/search.component';
-import { FilterComponent } from './Filter/filter.component';
+import { HomeComponent } from './pages/Home/home.component';
+import { SearchComponent } from './molecules/Search/search.component';
+import { FilterComponent } from './molecules/Filter/filter.component';
 
 @NgModule({
   declarations: [

@@ -1,0 +1,25 @@
+@import '../../../../node_modules/bootstrap/scss/functions';
+@import '../../../../node_modules/bootstrap/scss/variables';
+
+.home {
+  padding-top: 120px;
+  text-align: center;
+}
+
+.game-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.game-list__item__link {
+  max-width: 300px;
+}
+
+.game-list__item__image {
+  width: 100%;
+}
+
+.navbar {
+  box-shadow: 0px 1px 3px $gray-700;
+}

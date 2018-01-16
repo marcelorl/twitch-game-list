@@ -20,10 +20,12 @@
     (scrolled)="onScrollDown()"
   >
     <li
-      class="col-12 col-sm-6 col-md-4 col-xl-3 game-list__item mb-2 d-flex flex-column"
+      class="col-sm-6 col-md-4 col-lg-3 game-list__item mb-2 d-flex flex-column game-list__item align-items-center"
       *ngFor="let game of games">
-      <img [src]="game.image">
-      {{game.name}}
+      <a class="game-list__item__link">
+        <img class="game-list__item__image" [src]="game.image">
+        {{game.name}}
+      </a>
     </li>
   </ul>
 
