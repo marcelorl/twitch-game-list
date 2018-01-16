@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-white text-dark fixed-top align-content-center">
+  <a class="mr-5" [routerLink]="['/']"><</a>
+  {{game.name}}
+</nav>
+
+<div class="container content">
+  <div class="details__game d-flex justify-content-center text-center">
+    <img class="details__game__image col-xs-12 col-sm-6 col-lg-4" [src]="game.image">
+    <div class="details__game__info col-xs-12 col-sm-6 col-lg-4 pt-3 pb-3">
+      <div class="font-weight-bold text-uppercase">{{game.name}}</div>
+      <div>{{game.channels}} live channels</div>
+      <div>{{game.viewers}} viewers</div>
+      <div>{{game.popularity}} popularity</div>
+    </div>
+  </div>
+</div>
+

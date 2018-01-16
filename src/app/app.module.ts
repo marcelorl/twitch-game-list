@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TwitchService } from './twitch.service';
 import { HomeComponent } from './pages/Home/home.component';
+import { DetailsComponent } from './pages/Details/details.component';
 import { SearchComponent } from './molecules/Search/search.component';
 import { FilterComponent } from './molecules/Filter/filter.component';
 
@@ -15,6 +16,7 @@ import { FilterComponent } from './molecules/Filter/filter.component';
   declarations: [
     AppComponent,
     HomeComponent,
+    DetailsComponent,
     SearchComponent,
     FilterComponent
   ],

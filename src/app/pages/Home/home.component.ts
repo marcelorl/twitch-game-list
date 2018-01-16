@@ -44,4 +44,10 @@ export class HomeComponent implements OnInit {
         this.loading = false;
       });
   }
+
+  gameLink(game: Game): Object {
+    const queryString = {game: encodeURIComponent(JSON.stringify(game))};
+
+    return queryString;
+  }
 }

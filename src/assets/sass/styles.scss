@@ -1,4 +1,4 @@
-@import '../../../node_modules/bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap';
 
 .bg-purple {
   background-color: $purple;
@@ -12,9 +12,18 @@
   border-color: $white !important;
 }
 
-.btn-outline-purple.active,
+.btn-outline-purple:disabled,
 .btn-outline-purple:hover {
   color: $purple;
   background-color: transparent;
   border-color: $purple !important;
+}
+
+.navbar {
+  box-shadow: 0px 1px 3px $gray-700;
+}
+
+.content {
+  padding-top: 120px;
+  text-align: center;
 }

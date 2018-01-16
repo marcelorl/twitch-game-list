@@ -10,7 +10,7 @@
   ></app-filter>
 </nav>
 
-<div class="container home">
+<div class="container content">
   <ul class="game-list row"
     *ngIf="games.length"
     data-infinite-scroll
@@ -22,7 +22,7 @@
     <li
       class="col-sm-6 col-md-4 col-lg-3 game-list__item mb-2 d-flex flex-column game-list__item align-items-center"
       *ngFor="let game of games">
-      <a class="game-list__item__link">
+      <a class="game-list__item__link" [routerLink]="['/details']" [queryParams]="gameLink(game)">
         <img class="game-list__item__image" [src]="game.image">
         {{game.name}}
       </a>

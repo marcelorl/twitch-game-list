@@ -19,7 +19,7 @@ const calcLimit = (): number => {
   return 100;
 };
 
-const sortResultByDefaultKey = (filter: string) =>
+const sortResultByDefaultKey = (filter: string): Game[] =>
   (comp1, comp2) => comp2[filter] - comp1[filter];
 
 @Injectable()
@@ -43,7 +43,8 @@ export class TwitchService {
             name: item.game.name,
             image: item.game.box.large,
             popularity: item.game.popularity,
-            viewers: item.viewers
+            viewers: item.viewers,
+            channels: item.channels
           })
         )
         .sort(sortResultByDefaultKey('popularity'));
@@ -53,7 +54,7 @@ export class TwitchService {
   searchGames(keyword: string): Observable<Game[]> {
     const queryString: string = [
       `type=suggest`,
-      `query=${encodeURI(keyword)}`
+      `query=${encodeURIComponent(keyword)}`
     ].join('&');
 
     return this.http.get(`${this.twitchUrl}/search/games?${queryString}`, httpOptions)
@@ -65,7 +66,8 @@ export class TwitchService {
               name: item.name,
               image: item.box.large,
               popularity: item.popularity,
-              viewers: item.viewers
+              viewers: item.viewers,
+              channels: item.channels
             })
           )
           .sort(sortResultByDefaultKey('popularity'));
