@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-white text-dark fixed-top flex-column">
+  <app-search class="w-100"
+    (loading)="loading = $event"
+    (games)="games = $event"
+  ></app-search>
+  <app-filter class="w-100"
+    (gamesOutput)="games = $event"
+    [games]="games"
+  ></app-filter>
+</nav>
+
+<div class="container home">
+  <ul class="game-list row">
+    <li
+      class="col-12 col-sm-6 col-md-4 col-xl-3 game-list__item mb-2 d-flex flex-column"
+      *ngFor="let game of games">
+      <img [src]="game.image">
+      {{game.name}}
+    </li>
+  </ul>
+
+  <img
+    *ngIf="loading"
+    src='assets/images/loading.gif' />
+
+  <div *ngIf="!games.length && !loading">No Results</div>
+</div>
