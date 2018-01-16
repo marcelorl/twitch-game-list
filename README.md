@@ -2,28 +2,49 @@
 
 [![Build Status](https://travis-ci.org/marcelorl/twitch-game-list.svg?branch=master)](https://travis-ci.org/marcelorl/twitch-game-list)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
+## Overview
 
-## Development server
+Project which pings Twitch API and fetches the top games being streamed.
+It also has the ability to search for games and visualize its details.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Tools
 
-## Code scaffolding
+ - Twitch API
+ - Angular 5
+ - Bootstrap v4
+ - Typescript
+ - Sass
+ - Jasmine
+ - Atomic Design
+ - Travis
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Commands
 
-## Build
+### Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+`$ npm i`
 
-## Running unit tests
+### Development server
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`$ npm start`
 
-## Running end-to-end tests
+### Build
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+`$ npm run build`
 
-## Further help
+### Running unit tests (watch mode)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`$ npm test`
+
+### Running code coverage
+
+`$ npm run coverage`
+
+### Lint
+
+`$ npm run lint`
+
+### Deployment
+
+I use Travis as CI tool. Then I make it `lint` and `test` before building, if anything goes wrong it wont let built
+ files to be sent to the server [gh-pages in this case](https://marcelorl.github.io/twitch-game-list/).
