@@ -19,9 +19,6 @@ const calcLimit = (): number => {
   return 100;
 };
 
-const sortResultByDefaultKey = (filter: string) =>
-  (comp1, comp2) => comp2[filter] - comp1[filter];
-
 @Injectable()
 export class TwitchService {
 
@@ -47,7 +44,7 @@ export class TwitchService {
             channels: item.channels
           })
         )
-        .sort(sortResultByDefaultKey('popularity'));
+        .sort((comp1, comp2) => comp2['popularity'] - comp1['popularity']);
       });
   }
 
@@ -70,7 +67,7 @@ export class TwitchService {
               channels: item.channels
             })
           )
-          .sort(sortResultByDefaultKey('popularity'));
+          .sort((comp1, comp2) => comp2['popularity'] - comp1['popularity']);
       });
   }
 }
