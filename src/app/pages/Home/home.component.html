@@ -24,7 +24,9 @@
       *ngFor="let game of games">
       <a class="game-list__item__link" [routerLink]="['/details']" [queryParams]="gameLink(game)">
         <img class="game-list__item__image" [src]="game.image">
-        {{game.name}}
+        <div class="game-list__item__title w-100 d-flex align-items-center justify-content-center">
+          {{game.name}}
+        </div>
       </a>
     </li>
   </ul>

@@ -19,7 +19,7 @@ const calcLimit = (): number => {
   return 100;
 };
 
-const sortResultByDefaultKey = (filter: string): Game[] =>
+const sortResultByDefaultKey = (filter: string) =>
   (comp1, comp2) => comp2[filter] - comp1[filter];
 
 @Injectable()
