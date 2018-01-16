@@ -1,7 +1,7 @@
 import {TestBed, ComponentFixture} from '@angular/core/testing';
 import { FilterComponent } from './filter.component';
-import { DebugElement } from "@angular/core";
-import { By } from "@angular/platform-browser";
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 describe('#Component: Filter', () => {
   let component: FilterComponent;
