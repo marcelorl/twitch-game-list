@@ -10,13 +10,13 @@ const httpOptions = {
 };
 
 const calcLimit = () => {
-  const width = window.innerWidth
-  if (width < 480) {
-    return 25
-  } else if (width < 1025) {
-    return 50
+  const width = window.innerWidth;
+  if (width < 576) {
+    return 25;
+  } else if (width < 992) {
+    return 50;
   }
-  return 100
+  return 100;
 };
 
 const sortResultByDefaultKey = (filter: string) =>
