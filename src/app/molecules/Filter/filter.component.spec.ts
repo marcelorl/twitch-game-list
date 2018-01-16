@@ -10,15 +10,15 @@ describe('#Component: Filter', () => {
   let btnViewEl: DebugElement;
 
   const inputGames = [
-    { id: '', name: '', image: '', popularity: 1, viewers: 1 },
-    { id: '', name: '', image: '', popularity: 2, viewers: 2 },
-    { id: '', name: '', image: '', popularity: 3, viewers: 3 }
+    { id: '', name: '', image: '', popularity: 1, viewers: 1, channels: 1 },
+    { id: '', name: '', image: '', popularity: 2, viewers: 2, channels: 1 },
+    { id: '', name: '', image: '', popularity: 3, viewers: 3, channels: 1 }
   ];
 
   const expectedGames = [
-    { id: '', name: '', image: '', popularity: 3, viewers: 3 },
-    { id: '', name: '', image: '', popularity: 2, viewers: 2 },
-    { id: '', name: '', image: '', popularity: 1, viewers: 1 }
+    { id: '', name: '', image: '', popularity: 3, viewers: 3, channels: 1 },
+    { id: '', name: '', image: '', popularity: 2, viewers: 2, channels: 1 },
+    { id: '', name: '', image: '', popularity: 1, viewers: 1, channels: 1 }
   ];
 
   beforeEach(() => {
@@ -46,11 +46,11 @@ describe('#Component: Filter', () => {
     btnPopularityEl.triggerEventHandler('click', null);
     fixture.detectChanges();
 
-    const btnPopClasses = btnPopularityEl.nativeElement.classList;
-    const btnViewClasses = btnViewEl.nativeElement.classList;
+    const btnPopDisabled = btnPopularityEl.nativeElement.disabled;
+    const btnViewDisabled = btnViewEl.nativeElement.disabled;
 
-    expect(btnPopClasses.contains('active')).toBeTruthy();
-    expect(btnViewClasses.contains('active')).toBeFalsy();
+    expect(btnPopDisabled).toBeTruthy();
+    expect(btnViewDisabled).toBeFalsy();
   });
 
   it('checks if class active is in views button', () => {
@@ -61,11 +61,11 @@ describe('#Component: Filter', () => {
     btnViewEl.triggerEventHandler('click', null);
     fixture.detectChanges();
 
-    const btnViewClasses = btnViewEl.nativeElement.classList;
-    const btnPopClasses = btnPopularityEl.nativeElement.classList;
+    const btnViewDisabled = btnViewEl.nativeElement.disabled;
+    const btnPopDisabled = btnPopularityEl.nativeElement.disabled;
 
-    expect(btnViewClasses.contains('active')).toBeTruthy();
-    expect(btnPopClasses.contains('active')).toBeFalsy();
+    expect(btnViewDisabled).toBeTruthy();
+    expect(btnPopDisabled).toBeFalsy();
   });
 
   it('sorts by popularity', () => {
