@@ -1,22 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 import { Observable } from 'rxjs/Observable';
 
 import { Game } from './game.model';
+import { calcLimit } from 'app/helpers/helpers';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Client-ID': '6rvivrxl0ww18gk6rh5dtvcr2nmz0j' })
-};
-
-const calcLimit = (): number => {
-  const width = window.innerWidth;
-  if (width < 576) {
-    return 25;
-  } else if (width < 992) {
-    return 50;
-  }
-  return 100;
 };
 
 @Injectable()
