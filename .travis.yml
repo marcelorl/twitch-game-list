@@ -5,8 +5,7 @@ node_js:
 
 branches:
   only:
-    - gh-pages
-    - /.*/
+    - master
 
 cache:
   directories:
@@ -28,14 +27,6 @@ addons:
     packages:
       - google-chrome-stable
 
-before_deploy:
+after_success:
   - npm run build:prod
-
-deploy:
-  local-dir: dist
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  keep-history: true
-  on:
-    branch: master
+  - npm run deploy
