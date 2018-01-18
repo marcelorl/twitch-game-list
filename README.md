@@ -17,6 +17,7 @@ It also has the ability to search for games and visualize its details.
  - Jasmine
  - Atomic Design
  - Travis
+ - [Commit amigão](https://github.com/BeeTech-global/bee-stylish/tree/master/commits)
 
 ## Commands
 
