@@ -7,7 +7,7 @@
     "start": "ng serve --open",
     "build": "ng build",
     "build:prod": "ng build --aot --prod --progress false --base-href \"https://marcelorl.github.io/twitch-game-list/\"",
-    "deploy": "ngh",
+    "deploy": "ngh --repo=https://GITHUB_TOKEN@github.com/marcelorl/twitch-game-list.git --no-silent=false",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
