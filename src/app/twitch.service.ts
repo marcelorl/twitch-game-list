@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
+import { map } from "rxjs/operators";
 
 import { Game } from './game.model';
 import { calcLimit } from 'app/helpers/helpers';
@@ -23,19 +24,21 @@ export class TwitchService {
     ].join('&');
 
     return this.http.get(`${this.twitchUrl}/games/top?${queryString}`, httpOptions)
-      .map(response => {
-        return <any>response['top'].map(item =>
-          new Game({
-            id: item.game._id,
-            name: item.game.name,
-            image: item.game.box.large,
-            popularity: item.game.popularity,
-            viewers: item.viewers,
-            channels: item.channels
-          })
+      .pipe(
+        map(response =>
+          response['top'].map(item =>
+            new Game({
+              id: item.game._id,
+              name: item.game.name,
+              image: item.game.box.large,
+              popularity: item.game.popularity,
+              viewers: item.viewers,
+              channels: item.channels
+            })
+          )
+            .sort((comp1, comp2) => comp2['popularity'] - comp1['popularity'])
         )
-        .sort((comp1, comp2) => comp2['popularity'] - comp1['popularity']);
-      });
+      );
   }
 
   searchGames(keyword: string): Observable<Game[]> {
@@ -45,19 +48,21 @@ export class TwitchService {
     ].join('&');
 
     return this.http.get(`${this.twitchUrl}/search/games?${queryString}`, httpOptions)
-      .map(response => {
-        return <any>response['games']
-          .map(item =>
-            new Game({
-              id: item._id,
-              name: item.name,
-              image: item.box.large,
-              popularity: item.popularity,
-              viewers: item.viewers,
-              channels: item.channels
-            })
-          )
-          .sort((comp1, comp2) => comp2['popularity'] - comp1['popularity']);
-      });
+      .pipe(
+        map(response =>
+          response['games']
+            .map(item =>
+              new Game({
+                id: item._id,
+                name: item.name,
+                image: item.box.large,
+                popularity: item.popularity,
+                viewers: item.viewers,
+                channels: item.channels
+              })
+            )
+            .sort((comp1, comp2) => comp2['popularity'] - comp1['popularity'])
+        )
+      );
   }
 }

@@ -6,12 +6,12 @@ import {
   EventEmitter
 } from '@angular/core';
 
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/switch';
+
+
+
+
+
+
 
 import { Game } from 'app/game.model';
 
