@@ -18,7 +18,6 @@ import { Game } from 'app/game.model';
               aria-label="Search"
               autofocus
               (keyup)="onSearchGame($event.target.value)" />
-              {{ packages$ | async }}
             `
   })
 export class SearchComponent implements OnInit {
@@ -44,20 +43,20 @@ export class SearchComponent implements OnInit {
       }),
       switchMap((keyword: string) =>
         this.searchGames(keyword)
-      ),
-      // subscribe((games: Game[]) => {
-      //     this.loading.emit(false);
-      //     this.games.emit(games);
-      //   },
-      //   (err: any) => {
-      //     console.log(err);
-      //     this.loading.emit(false);
-      //   },
-      //   () => {
-      //     this.loading.emit(false);
-      //   }
-      // )
-    );
+      )
+    )
+      .subscribe((games: Game[]) => {
+          this.loading.emit(false);
+          this.games.emit(games);
+        },
+        (err: any) => {
+          console.log(err);
+          this.loading.emit(false);
+        },
+        () => {
+          this.loading.emit(false);
+        }
+      );
   }
 
   onSearchGame (keyword: string) {
