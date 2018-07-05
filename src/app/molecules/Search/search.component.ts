@@ -5,7 +5,7 @@ import {
   EventEmitter
 } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map, switchMap, tap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
 import { TwitchService } from 'app/twitch.service';
 import { Game } from 'app/game.model';
 
