@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from "rxjs/operators";
+import { map } from 'rxjs/operators';
 
 import { Game } from './game.model';
 import { calcLimit } from 'app/helpers/helpers';
