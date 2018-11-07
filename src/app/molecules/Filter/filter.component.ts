@@ -5,14 +5,6 @@ import {
   Input,
   EventEmitter
 } from '@angular/core';
-
-
-
-
-
-
-
-
 import { Game } from 'app/game.model';
 
 @Component({
