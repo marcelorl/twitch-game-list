@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit {
   }
 
   getGames(): void {
+    this.loading = true;
+
     this.twitchService.getGames()
       .subscribe(game => {
         this.games = game;
