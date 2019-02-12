@@ -1,6 +1,6 @@
 # TwitchGameList
 
-[![Build Status](https://travis-ci.org/marcelorl/twitch-game-list.svg?branch=master)](https://travis-ci.org/marcelorl/twitch-game-list)
+[![Build Status](https://travis-ci.org/marcelorl/twitch-game-list.svg?branch=master)](https://travis-ci.org/marcelorl/twitch-game-list) [![Greenkeeper badge](https://badges.greenkeeper.io/marcelorl/twitch-game-list.svg)](https://greenkeeper.io/)
 
 ## Overview
 
